@@ -4,6 +4,7 @@ import MainLayout from "@/layouts/MainLayout.astro";
 import Card from "@/components/sections/Card.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 
+
 export async function getStaticPaths() {
   const contentEntries = await getCollection("uniview");
   return contentEntries.map((entry) => ({
