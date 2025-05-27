@@ -32,8 +32,96 @@ const cards: Card[] = content.map((item) => ({
   features: item.data.features,
   publishedTime: item.data.publishedTime,
 }));
+
+const canonicalUrl = new URL("/seagateproducts", Astro.site).toString();
+const pageTitle = "Seagate Skyhawk Surveillance Hard Drive | 3 Year Warranty | UAE Distributor";
+const description = "Official Seagate Skyhawk surveillance hard drives with 3-year replacement warranty. Authorized distributor in UAE, Saudi Arabia, Dubai & Middle East. Best prices for CCTV storage.";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: pageTitle,
+      url: "https://lovosis.com",
+      logo: "https://lovosis.com/pictures/logo.png",
+      description: description,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971552929644",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
+    },
+    {
+      "@type": "WebPage",
+      name: "Seagate | Lovosis Technology",
+      url: "https://lovosis.com/seagateproducts",
+      description: description,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://lovosis.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Imou",
+          item: "https://lovosis.com/seagateproducts",
+        },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      itemListElement: cards.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+          url: new URL(`/seagate/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
+          },
+          brand: {
+            "@type": "Brand",
+            name: "Seagate",
+          },
+        },
+      })),
+    },
+  ],
+};
 ---
-<MainLayout title="Seagate Products">
+<MainLayout  
+title={pageTitle} 
+  description={description} 
+  sd={structuredData}
+  canonical={canonicalUrl}>
   <!-- Banner Section -->
   <section class="relative h-[500px] w-full overflow-hidden">
     <div class="parallax-bg absolute inset-0"></div>
@@ -68,7 +156,7 @@ const cards: Card[] = content.map((item) => ({
       <div class="text-center">
         <div class="fade-in-up mb-4">
           <span
-            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full px-4 py-2 text-sm font-semibold"
+            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-white rounded-full px-4 py-2 text-sm font-semibold"
           >
             DATA STORAGE INNOVATION
           </span>

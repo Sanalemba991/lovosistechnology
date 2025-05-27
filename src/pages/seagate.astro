@@ -82,36 +82,6 @@ const structuredData = {
         },
       ],
     },
-    {
-      "@type": "ItemList",
-      itemListElement: cards.map((product, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "Product",
-          name: product.title,
-          description: product.desc,
-          image: new URL(product.img, Astro.site).toString(),
-          url: new URL(`/seagate/${product.slug}`, Astro.site).toString(),
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "AED",
-            price: "0.00",
-            availability: "https://schema.org/InStock",
-            itemCondition: "https://schema.org/NewCondition",
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: product.ratingValue.toString() || "4.5",
-            reviewCount: "10",
-          },
-          brand: {
-            "@type": "Brand",
-            name: "Seagate",
-          },
-        },
-      })),
-    },
   ],
 };
 const metaTags = [

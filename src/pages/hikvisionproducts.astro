@@ -32,9 +32,94 @@ const cards: Card[] = content.map((item) => ({
   features: item.data.features,
   publishedTime: item.data.publishedTime,
 }));
+
+const pageTitle = "Hikvision wholesale dealer in U.A.E";
+const descriptions = "Hikvision wholesale dealer in UAE offering top-quality CCTV cameras, access control, and security solutions at unbeatable prices. Contact us for bulk pricing";
+const canonicalUrl = new URL('/hikvisionproducts', Astro.site).toString();
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: pageTitle,
+      url: "https://lovosis.com",
+      logo: "https://lovosis.com/pictures/logo.png",
+      description: descriptions,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971552929644",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
+    },
+    {
+      "@type": "WebPage",
+      name: "Hikvision | Lovosis Technology",
+      url: "https://lovosis.com/hikvisionproducts",
+      description: descriptions,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://lovosis.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Imou",
+          item: "https://lovosis.com/hikvisionproducts",
+        },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      itemListElement: cards.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+          url: new URL(`/hikvision/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
+          },
+          brand: {
+            "@type": "Brand",
+            name: "Hikvision",
+          },
+        },
+      })),
+    },
+  ],
+};
 ---
 
-<MainLayout title="Hikvision Products">
+<MainLayout  title={pageTitle} sd={structuredData} description={descriptions} canonical={canonicalUrl}>
   <!-- Enhanced Banner Section -->
   <section class="relative h-[500px] w-full overflow-hidden">
     <div class="parallax-bg absolute inset-0"></div>
@@ -71,7 +156,7 @@ const cards: Card[] = content.map((item) => ({
       <div class="text-center">
         <div class="fade-in-up mb-4">
           <span
-            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full px-4 py-2 text-sm font-semibold"
+            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-white rounded-full px-4 py-2 text-sm font-semibold"
           >
             PROFESSIONAL SURVEILLANCE
           </span>

@@ -32,9 +32,107 @@ const cards: Card[] = content.map((item) => ({
   features: item.data.features,
   publishedTime: item.data.publishedTime,
 }));
----
 
-<MainLayout title="Uniarch Products">
+const description =
+  "Uniarch wholesale dealer in UAE offering top-quality CCTV cameras, access control, and security solutions at unbeatable prices. Contact us for bulk pricing";
+const abtitle: string = "UniArch Security Cameras in Dubai";
+const absubTitle: string =
+  "Discover Lovosis, Dubai's authorized supplier of premium UniArch surveillance solutions.";
+const pageTitle: string = "Uniarch Security Solutions | Lovosis Technology";
+const canonicalUrl = new URL("/uniarchproducts", Astro.site).toString();
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Lovosis Technology L.L.C",
+      url: "https://lovosis.com",
+      logo: "https://lovosis.com/pictures/logo.png",
+      description: description,
+      sameAs: [
+        "https://www.facebook.com/p/LOVOSIS-TECHNOLOGY-100083060600975/",
+        "https://www.instagram.com/_lovosis_group_of_companies_/reels/",
+      ],
+      email: "sales@lovosis.com",
+      telephone: "+971509162488",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress:
+          "Satellite Market Naif Deira,Baghlaf Building Showroom No.5",
+        addressLocality: "Dubai",
+        addressCountry: "AE",
+        addressRegion: "Dubai,United Arab Emirates",
+        postalCode: "123421",
+      },
+    },
+    {
+      "@type": "WebPage",
+      name: "Uniarch | Lovosis Technology",
+      url: "https://lovosis.com/uniarchproducts",
+      description: description,
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://lovosis.com/#breadcrumb",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          item: {
+            "@id": "https://lovosis.com",
+            name: "Home",
+          },
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          item: {
+            "@id": "https://lovosis.com/uniarchproducts",
+            name: "Uniarch",
+          },
+        },
+      ],
+    },
+   
+     {
+      "@type": "ItemList",
+      itemListElement: cards.map((product, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "Product",
+          name: product.title,
+          description: product.desc,
+          image: new URL(product.img, Astro.site).toString(),
+       
+          url: new URL(`/uniarch/${product.slug}`, Astro.site).toString(),
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "AED",
+            price: "0.00",
+            availability: "https://schema.org/InStock",
+            itemCondition: "https://schema.org/NewCondition",
+          },
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: product.ratingValue.toString() || "4.5",
+            reviewCount: "10",
+          },
+          brand: {
+            "@type": "Brand",
+            name: "Uniarch",
+          },
+        },
+      })),
+    },
+  ],
+};
+---
+<MainLayout
+  title={pageTitle}
+  sd={structuredData}
+  canonical={canonicalUrl}
+>
   <!-- Enhanced Banner Section -->
   <section class="relative h-[500px] w-full overflow-hidden">
     <div class="parallax-bg absolute inset-0"></div>
@@ -71,7 +169,7 @@ const cards: Card[] = content.map((item) => ({
       <div class="text-center">
         <div class="fade-in-up mb-4">
           <span
-            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full px-4 py-2 text-sm font-semibold"
+            class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-white rounded-full px-4 py-2 text-sm font-semibold"
           >
             PROFESSIONAL SURVEILLANCE
           </span>

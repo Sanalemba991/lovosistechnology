@@ -73,54 +73,7 @@ const structuredData = {
       description: description,
     },
     // Breadcrumb Schema
-    {
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        {
-          "@type": "ListItem",
-          position: 1,
-          name: "Home",
-          item: "https://lovosis.com",
-        },
-        {
-          "@type": "ListItem",
-          position: 2,
-          name: "Uniview",
-          item: "https://lovosis.com/uniview",
-        },
-      ],
-    },
-    // Product List Schema
-    {
-      "@type": "ItemList",
-      itemListElement: cards.map((product, index) => ({
-        "@type": "ListItem",
-        position: index + 1,
-        item: {
-          "@type": "Product",
-          name: product.title,
-          description: product.desc,
-          image: new URL(product.img, Astro.site).toString(),
-          url: new URL(`/uniview/${product.slug}`, Astro.site).toString(),
-          offers: {
-            "@type": "Offer",
-            priceCurrency: "AED",
-            price: "0.00", // Update with actual price if available
-            availability: "https://schema.org/InStock",
-            itemCondition: "https://schema.org/NewCondition",
-          },
-          aggregateRating: {
-            "@type": "AggregateRating",
-            ratingValue: product.ratingValue.toString() || "4.5",
-            reviewCount: "10", // Update with actual review count if available
-          },
-          brand: {
-            "@type": "Brand",
-            name: "Uiview",
-          },
-        },
-      })),
-    },
+    
   ],
 };
 const metaTags = [
