@@ -191,7 +191,7 @@ const wdContent = await getCollection("westerdigital");
             continues to push boundaries, inspiring those who dare to think big.
           </p>
           <div class="animate-fadeIn mt-4 grid w-full sm:inline-flex">
-            <PrimaryCTA title="Contact Us" url="/contact" />
+            <PrimaryCTA title="Explore Our Products " url="/westerndigitalproducts" />
           </div>
         </div>
       </div>
@@ -326,70 +326,7 @@ const wdContent = await getCollection("westerdigital");
     </div>
   </div>
 
-  <section class="mx-auto mt-5 max-w-[1400px] px-4 pt-8">
-    <div class="mx-auto mb-12 max-w-2xl">
-      <h2 class="mb-6 text-center text-3xl font-bold dark:text-gray-200">
-        Western Digital Products
-      </h2>
-      <div class="relative">
-        <input
-          type="text"
-          id="search"
-          class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm focus:outline-none focus:ring-1"
-          placeholder="Search Westerdigital Products..."
-        />
-        <svg
-          class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-        </svg>
-      </div>
-    </div>
-    <section class="scroll-animate mx-auto max-w-[1400px] px-4 pb-8">
-      <div></div>
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
-        {
-          cards.map((card) => (
-            <div class="translate-y-10 transform overflow-hidden rounded-lg bg-white opacity-0 shadow-lg transition-all duration-300 duration-500 ease-in-out hover:-translate-y-2 hover:shadow-xl dark:bg-neutral-500">
-              <div class="flex items-center justify-center p-4">
-                <img
-                  src={card.img}
-                  alt={card.alt}
-                  class="product-image h-48 w-auto object-contain"
-                />
-              </div>
-              <div class="flex flex-col items-center p-6">
-                <h3 class="text-center text-xl font-semibold dark:text-white">
-                  {card.title}
-                </h3>
-                <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300">
-                  {card.desc}
-                </p>
-                <a href={`/westerdigital/${card.slug}`} class="read-more-btn">
-                  Read More
-                </a>
-              </div>
-            </div>
-          ))
-        }
-      </div>
-    </section>
-    <p
-      id="no-results"
-      class="mx-4 my-6 hidden rounded-lg bg-gray-50 py-8 text-center text-xl font-medium text-gray-600 shadow-inner"
-    >
-      <span class="mb-2 block text-3xl">🔍</span>
-      No matching results found
-    </p>
-  </section>
+  
   <script>
     // Intersection Observer for scroll animations
     document.addEventListener("DOMContentLoaded", function () {

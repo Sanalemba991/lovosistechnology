@@ -18,7 +18,7 @@ interface Card {
   publishedTime: string;
 }
 
-const content = await getCollection("uniview");
+const content = await getCollection("seagate");
 const cards: Card[] = content.map((item) => ({
   id: item.data.id,
   title: item.data.title,
@@ -33,9 +33,8 @@ const cards: Card[] = content.map((item) => ({
   publishedTime: item.data.publishedTime,
 }));
 ---
-
-<MainLayout title="UNV Products">
-  <!-- Enhanced Banner Section -->
+<MainLayout title="Seagate Products">
+  <!-- Banner Section -->
   <section class="relative h-[500px] w-full overflow-hidden">
     <div class="parallax-bg absolute inset-0"></div>
     <div class="floating-particles absolute inset-0"></div>
@@ -44,12 +43,10 @@ const cards: Card[] = content.map((item) => ({
     >
       <div class="mx-auto max-w-4xl px-4 text-center text-white">
         <h1 class="banner-title mb-6 text-4xl font-bold opacity-0 md:text-6xl">
-          UNV Security Solutions
+          Seagate
         </h1>
         <p class="banner-subtitle text-xl opacity-0 md:text-2xl">
-          Discover our range of high-quality UNV security cameras and
-          surveillance systems designed to protect your home and business with
-          cutting-edge technology.
+          Innovating data storage solutions to help the world store and protect what matters most.
         </p>
         <div class="banner-cta mt-8 opacity-0">
           <button
@@ -62,7 +59,7 @@ const cards: Card[] = content.map((item) => ({
     </div>
   </section>
 
-  <!-- Enhanced Overview Section -->
+  <!-- Overview Section -->
   <section
     class="overview-section to-blue-50 dark:to-blue-900 relative overflow-hidden bg-gradient-to-br from-gray-50 via-white py-20 dark:from-gray-900 dark:via-gray-800"
   >
@@ -73,24 +70,22 @@ const cards: Card[] = content.map((item) => ({
           <span
             class="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 rounded-full px-4 py-2 text-sm font-semibold"
           >
-            PROFESSIONAL SURVEILLANCE
+            DATA STORAGE INNOVATION
           </span>
         </div>
         <h2
           class="fade-in-up mb-8 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl"
         >
-          Why Choose UNV?
+          Seagate Storage Solutions
         </h2>
         <p
           class="fade-in-up mx-auto mb-16 max-w-3xl text-lg text-gray-600 dark:text-gray-300"
         >
-          UNV (Uniview) stands at the forefront of security technology,
-          delivering enterprise-grade surveillance solutions with innovative
-          features, exceptional reliability, and cutting-edge AI capabilities.
+          Seagate delivers advanced data storage solutions that help businesses and individuals manage the world's exponential data growth.
         </p>
       </div>
 
-      <!-- Animated Features Grid -->
+      <!-- Features Grid -->
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         <div
           class="feature-card group cursor-pointer rounded-2xl bg-white p-8 shadow-lg transition-all duration-500 hover:shadow-2xl dark:bg-gray-800"
@@ -108,21 +103,15 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"
               ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            Advanced AI Analytics
+            Hard Disk Drives
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Intelligent video analytics with facial recognition, object
-            detection, and behavioral analysis for enhanced security monitoring.
+            High-capacity HDDs for desktops, laptops, NAS systems, and enterprise data centers.
           </p>
         </div>
 
@@ -142,16 +131,15 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
               ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            Enterprise Security
+            Solid State Drives
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Military-grade encryption and cybersecurity features ensure your
-            surveillance data remains protected and confidential.
+            High-performance SSDs for faster computing, gaming, and professional applications.
           </p>
         </div>
 
@@ -171,15 +159,15 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v14a1 1 0 01-1 1H5a1 1 0 01-1-1V5z"
+              ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            High Performance
+            External Storage
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Ultra-HD 4K resolution, superior night vision, and weather-resistant
-            designs for reliable 24/7 operation.
+            Portable and desktop external drives for backup, expansion, and on-the-go access.
           </p>
         </div>
 
@@ -199,16 +187,15 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"
+                d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
               ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            Smart Connectivity
+            Network Storage
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Seamless integration with existing networks, mobile apps, and cloud
-            services for remote monitoring and management.
+            NAS solutions for home and business with multi-bay configurations and RAID support.
           </p>
         </div>
 
@@ -228,15 +215,15 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+              ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            24/7 Support
+            Data Recovery
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Comprehensive technical support and maintenance services to ensure
-            your security system operates flawlessly.
+            Professional data recovery services to retrieve lost files from damaged drives.
           </p>
         </div>
 
@@ -256,22 +243,20 @@ const cards: Card[] = content.map((item) => ({
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"
+                d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
               ></path>
             </svg>
           </div>
           <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-            Scalable Solutions
+            Surveillance Storage
           </h3>
           <p class="text-gray-600 dark:text-gray-300">
-            Flexible system architecture that grows with your needs, from single
-            cameras to enterprise-wide deployments.
+            Optimized drives for 24/7 surveillance systems with high reliability and endurance.
           </p>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Enhanced Products Section -->
   <section class="products-section bg-white py-20 dark:bg-gray-900">
     <div class="mx-auto max-w-[1400px] px-4">
@@ -286,14 +271,12 @@ const cards: Card[] = content.map((item) => ({
         <h2
           class="fade-in-up mb-6 text-4xl font-bold text-gray-900 dark:text-white md:text-5xl"
         >
-          UNV Product Collection
+          Seagate Product Collection
         </h2>
         <p
           class="fade-in-up mx-auto mb-12 max-w-2xl text-lg text-gray-600 dark:text-gray-300"
         >
-          Explore our comprehensive range of UNV security cameras and
-          surveillance equipment, each designed to meet specific security
-          requirements with professional-grade performance.
+          Explore our comprehensive range of Seagate storage solutions, including enterprise HDDs, client SSDs, and NAND flash memory, each designed to meet specific data storage requirements with professional-grade reliability and performance.
         </p>
       </div>
 
@@ -306,7 +289,7 @@ const cards: Card[] = content.map((item) => ({
               type="text"
               id="search"
               class="focus:border-blue-500 focus:ring-blue-500 w-full rounded-lg border border-gray-300 px-4 py-3 pl-12 text-base shadow-sm transition-all duration-300 focus:outline-none focus:ring-1 focus:shadow-lg"
-              placeholder="Search UNV Products..."
+              placeholder="Search Seagate Products..."
             />
             <svg
               class="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400 transition-colors duration-300"
@@ -351,7 +334,7 @@ const cards: Card[] = content.map((item) => ({
                     <p class="mb-4 mt-3 text-center text-gray-600 dark:text-gray-300 transition-colors duration-300">
                       {card.desc}
                     </p>
-                    <a href={`/unv/${card.slug}`} class="read-more-btn">
+                    <a href={`/seagate/${card.slug}`} class="read-more-btn">
                       Read More
                     </a>
                   </div>
@@ -542,7 +525,7 @@ const cards: Card[] = content.map((item) => ({
             rgba(0, 0, 0, 0.6),
             rgba(0, 0, 0, 0.4)
           ),
-          url("/pictures/unv/unvbanner1.png");
+          url("/pictures/seagate/seagatebanner1.png");
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -764,7 +747,7 @@ const cards: Card[] = content.map((item) => ({
               rgba(0, 0, 0, 0.6),
               rgba(0, 0, 0, 0.4)
             ),
-            url("/pictures/mobileview/UNV Mobile View.jpg");
+            url("/pictures/mobileview/Seagate Mobile View.jpg");
           background-attachment: scroll;
         }
 
