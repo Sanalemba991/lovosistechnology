@@ -4,14 +4,14 @@ import Icon from "../icons/Icon.astro";
 
 // Get the current URL path to determine active page
 const { pathname } = Astro.url;
-const brandPaths = ['/uniview', '/alhua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay'];
-const isBrandsActive = brandPaths.some(path => pathname.includes(path));
+const brandPaths = ['/uniview', '/alhua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay','/unvdisplayproducts','/unvproducts','/westerndigitalproducts','/toshibaproducts','/seagateproducts','/dahuaproducts','/imouproducts','/hikvisionproducts','/uniarchproducts'];
+const isBrandsActive = brandPaths.some(path => pathname.startsWith(path));
 ---
 
 <div class="hs-dropdown [--adaptive:none] [--strategy:static] md:[--strategy:absolute] md:[--trigger:hover]">
   <button
     type="button"
-    class={`flex w-full items-center font-semibold ${isBrandsActive ? 'font-semibold text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
+    class={`flex w-full items-center font-semibold ${isBrandsActive ? 'text-blue-600' : 'text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600'}`}
   >
     <a href="/#"> Brands </a>
     <svg
@@ -29,6 +29,7 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
       ></path>
     </svg>
   </button>
+
 
   <div
     class="hs-dropdown-menu start-0 top-full z-10 hidden w-full min-w-60 rounded-2xl bg-neutral-50 py-2 opacity-0 transition-[opacity,margin] duration-300 ease-in-out before:absolute before:-top-5 before:start-0 before:h-5 before:w-full hs-dropdown-open:opacity-100 dark:divide-neutral-700 dark:bg-neutral-800 md:top-16 md:p-4 md:shadow-2xl md:duration-300"
@@ -404,7 +405,7 @@ const isBrandsActive = brandPaths.some(path => pathname.includes(path));
 
     // Brand path detection
     const currentPath = window.location.pathname;
-    const brandPaths = ['/uniview', '/dahua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay'];
+    const brandPaths = ['/uniview', '/alhua', '/imou', '/hikvision', '/westerdigital', '/toshiba', '/seagate', '/uniarch', '/unvdisplay','/unvdisplayproducts','/unvproducts','/westerndigitalproducts','/toshibaproducts','/seagateproducts','/dahuaproducts','/imouproducts','/hikvisionproducts','/uniarchproducts'];
     
     if (brandPaths.some(path => currentPath.includes(path))) {
       const brandsButton = document.querySelector('.hs-dropdown button');
