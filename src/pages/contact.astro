@@ -410,3 +410,68 @@ const structuredData = {
     </div>
   </section>
 </MainLayout>
+
+<script is:inline>
+  const form = document.getElementById('contact-form');
+  const result = document.createElement('div');
+  result.id = 'result';
+  result.style.marginTop = '1rem';
+  result.style.padding = '0.75rem';
+  result.style.borderRadius = '0.5rem';
+  result.style.textAlign = 'center';
+  result.style.display = 'none';
+  
+  // Insert result div after the form
+  form.parentNode.insertBefore(result, form.nextSibling);
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(form);
+    
+    // Add the Web3Forms access key
+    formData.append('access_key', 'fd71803b-2c58-4589-bee9-6d9a3f5befef');
+    
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+    
+    result.style.display = 'block';
+    result.style.backgroundColor = '#f3f4f6';
+    result.style.color = '#374151';
+    result.innerHTML = "Sending message...";
+    
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: json
+    })
+    .then(async (response) => {
+      let json = await response.json();
+      if (response.status == 200) {
+        result.style.backgroundColor = '#dcfce7';
+        result.style.color = '#166534';
+        result.innerHTML = "✅ " + json.message;
+      } else {
+        console.log(response);
+        result.style.backgroundColor = '#fef2f2';
+        result.style.color = '#dc2626';
+        result.innerHTML = "❌ " + json.message;
+      }
+    })
+    .catch(error => {
+      console.log(error);
+      result.style.backgroundColor = '#fef2f2';
+      result.style.color = '#dc2626';
+      result.innerHTML = "❌ Something went wrong!";
+    })
+    .then(function() {
+      form.reset();
+      setTimeout(() => {
+        result.style.display = "none";
+      }, 5000);
+    });
+  });
+</script>
